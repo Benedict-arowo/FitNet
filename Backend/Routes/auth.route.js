@@ -12,3 +12,4 @@ authRouter.route("/register").post(Wrapper(RegisterUser));
 authRouter.route("/logout").post(Wrapper(LogoutUser));
 
 // TODO: Password resetting route
+module.exports = authRouter;
