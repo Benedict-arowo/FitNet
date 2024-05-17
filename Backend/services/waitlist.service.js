@@ -3,16 +3,16 @@ const ErrorWithStatusCode = require("../middlewear/ErrorWithStatusCode");
 const Waitlist = require("../models/waitlist.model");
 
 class WaitlistService {
-	async createWaitlistEntry({ email, full_name }) {
-		if (!email || !full_name) {
+	async createWaitlistEntry({ email }) {
+		if (!email) {
 			throw new ErrorWithStatusCode(
-				"Please provide an email and full name",
+				"Please provide an email",
 				StatusCodes.BAD_REQUEST
 			);
 		}
 
 		try {
-			return await Waitlist.create({ email, full_name });
+			return await Waitlist.create({ email });
 		} catch (error) {
 			if (error.original.code === "ER_DUP_ENTRY")
 				throw new ErrorWithStatusCode(
