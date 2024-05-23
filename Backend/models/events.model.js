@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
       }
     },
     eventDescription: {
-      type: DataTypes.JSONB,
+      type: DataTypes.JSON,
       allowNull: false
     },
     createdAt: {
