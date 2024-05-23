@@ -1,5 +1,5 @@
 const express = require('express')
-const userRouter = require('./routes/userRoutes')
+const userRouter = require('./routes/user.route')
 const bodyParser = require('body-parser')
 const rateLimit = require('express-rate-limit')
 const helmet = require('helmet')
