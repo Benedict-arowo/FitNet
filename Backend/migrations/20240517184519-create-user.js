@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('User', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -32,7 +32,7 @@ module.exports = {
       },
       role: {
         type: Sequelize.STRING,
-        defaultValue: 'user',
+        defaultValue: 'User',
         allowNull: false
       },
       profilePicture: {
@@ -43,7 +43,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: true, // Allow null for users who haven't been referred
         references: {
-          model: 'Users', // References the Users table
+          model: 'User', // References the Users table
           key: 'id' // References the id column in the Users table
         },
         onUpdate: 'CASCADE',
@@ -62,6 +62,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('User');
   }
 };

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     goal: DataTypes.TEXT,
     role: {
       type: DataTypes.STRING,
-      defaultValue: 'user'
+      defaultValue: 'User'
     },
     profilePicture: DataTypes.STRING, // Added column for storing image URLs
     referralId: {
