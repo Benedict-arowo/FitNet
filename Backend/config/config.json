@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "username": "FitNet_Dev_Team_2024@fitnet-mysql-server",
+    "password": "AltHub-Group-21",
+    "database": "fitnet_dev",
+    "host": "fitnet.mysql.database.azure.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "FitNet_Dev_Team_2024",
+    "password": "AltHub-Group-21",
+    "database": "fitnet_test",
+    "host": "fitnet.mysql.database.azure.com",
+    "dialect": "mysql"
+  },
+  "prod": {
+    "username": "FitNet_Dev_Team_2024@fitnet-mysql-server",
+    "password": "AltHub-Group-21",
+    "database": "fitnet_prod",
+    "host": "fitnet.mysql.database.azure.com",
+    "dialect": "mysql"
+  }
+}

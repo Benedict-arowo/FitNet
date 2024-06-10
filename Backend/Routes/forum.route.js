@@ -1,7 +1,7 @@
 // routes/forumRoutes.js
 const express = require('express');
 const router = express.Router();
-const ForumController = require('../controllers/forumController');
+const ForumController = require('../controllers/forum.controller');
 
 // Route for creating a new forum post
 router.post('/create', ForumController.createPost);

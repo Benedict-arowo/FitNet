@@ -1,7 +1,7 @@
 // routes/postRoutes.js
 const express = require('express');
 const router = express.Router();
-const PostController = require('../controllers/postController');
+const PostController = require('../controllers/post.controller');
 
 // Route for creating a new post
 router.post('/create', PostController.create);

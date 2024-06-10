@@ -1,7 +1,7 @@
 // routes/commentRoutes.js
 const express = require('express');
 const router = express.Router();
-const CommentController = require('../controllers/commentController');
+const CommentController = require('../controllers/comment.controller');
 
 // Route for creating a new comment
 router.post('/create', CommentController.create);
