@@ -1,47 +1,37 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  // Define the WorkoutExercise model
-  const WorkoutExercise = sequelize.define('WorkoutExercise', {
-    // Define the workoutId field with a foreign key relationship to the Workouts table
-    workoutId: {
+  const Workout = sequelize.define('Workout', {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Workouts',
+        model: 'User',
         key: 'id'
       }
     },
-    // Define the exerciseId field with a foreign key relationship to the Exercises table
-    exerciseId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Exercises',
-        key: 'id'
-      }
-    },
-    // Define the sets field to store the number of sets for the exercise in this workout
-    sets: {
-      type: DataTypes.INTEGER,
+    type: {
+      type: DataTypes.STRING,
       allowNull: false
     },
-    // Define the reps field to store the number of repetitions per set
-    reps: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    // Define the duration field to store the duration of the exercise in seconds
     duration: {
       type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    intensity: {
+      type: DataTypes.STRING,
       allowNull: true
+    },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
   }, {});
 
-  // Set up model associations
-  WorkoutExercise.associate = function(models) {
-    WorkoutExercise.belongsTo(models.Workout, { foreignKey: 'workoutId' });
-    WorkoutExercise.belongsTo(models.Exercise, { foreignKey: 'exerciseId' });
+  Workout.associate = function(models) {
+    Workout.belongsTo(models.User, { foreignKey: 'userId' });
+    // Define many-to-many relationship with Exercise through WorkoutExercise
+    Workout.belongsToMany(models.Exercise, { through: models.WorkoutExercise, foreignKey: 'workoutId' });
   };
 
-  return WorkoutExercise;
+  return Workout;
 };

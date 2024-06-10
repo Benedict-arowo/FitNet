@@ -1,0 +1,26 @@
+{
+    "title": "Exercise",
+    "type": "object",
+    "properties": {
+      "workoutId": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "sets": {
+        "type": "integer"
+      },
+      "reps": {
+        "type": "integer"
+      },
+      "rest": {
+        "type": "integer"
+      }
+    },
+    "required": ["workoutId", "name", "sets", "reps"]
+  }
+  

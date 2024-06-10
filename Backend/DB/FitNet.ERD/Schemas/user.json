@@ -1,0 +1,42 @@
+{
+    "title": "User",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "unique": true
+      },
+      "email": {
+        "type": "string",
+        "format": "email",
+        "unique": true
+      },
+      "password": {
+        "type": "string",
+        "minLength": 8
+      },
+      "location": {
+        "type": "string"
+      },
+      "goal": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string",
+        "default": "User"
+      },
+      "profilePicture": {
+        "type": "string"
+      },
+      "referralId": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "required": ["username", "email", "password"]
+  }
+  

@@ -1,0 +1,27 @@
+{
+    "title": "Event",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "userId": {
+        "type": "integer"
+      },
+      "eventDescription": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "required": ["id", "userId", "eventDescription", "createdAt", "updatedAt"]
+  }
+  

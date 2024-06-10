@@ -1,0 +1,40 @@
+{
+  "title": "Gym",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "address": {
+      "type": "string",
+      "minLength": 1
+    },
+    "latitude": {
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "longitude": {
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "price": {
+      "type": "number",
+      "minimum": 0
+    },
+    "services": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "trainers_available": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "apiId": {
+      "type": "string"
+    }
+  },
+  "required": ["name", "address", "latitude", "longitude", "price", "trainers_available"]
+}

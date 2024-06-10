@@ -1,0 +1,27 @@
+{
+    "title": "Workout",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "userId": {
+        "type": "integer"
+      },
+      "type": {
+        "type": "string"
+      },
+      "duration": {
+        "type": "integer"
+      },
+      "intensity": {
+        "type": "string"
+      },
+      "date": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "required": ["userId", "type", "duration", "date"]
+  }
+  

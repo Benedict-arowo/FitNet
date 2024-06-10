@@ -1,23 +1,32 @@
+'use strict';
+
 const faker = require('faker');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const workoutExercises = [];
-    for (let i = 0; i < 100; i++) {
-      workoutExercises.push({
-        workoutId: faker.datatype.number({ min: 1, max: 50 }), // Assuming there are 50 workouts
-        exerciseId: faker.datatype.number({ min: 1, max: 50 }), // Assuming there are 50 exercises
-        sets: faker.datatype.number({ min: 1, max: 5 }),
-        reps: faker.datatype.number({ min: 5, max: 20 }),
-        duration: faker.datatype.number({ min: 30, max: 300 }), // duration in seconds
+    // Array to store generated workout data
+    const workouts = [];
+
+    // Generate random workout data
+    for (let i = 0; i < 10; i++) { // Generate 10 workouts
+      const workout = {
+        userId: faker.random.number({ min: 1, max: 10 }), // Assuming userIds range from 1 to 10
+        type: faker.random.arrayElement(['Cardio', 'Strength Training', 'Yoga', 'HIIT', 'CrossFit']), // Random workout type
+        duration: faker.random.number({ min: 20, max: 120 }), // Random duration in minutes
+        intensity: faker.random.arrayElement(['Low', 'Medium', 'High']), // Random intensity level
+        date: faker.date.between('2020-01-01', '2024-06-09'), // Random date since 2020-01-01
         createdAt: new Date(),
         updatedAt: new Date()
-      });
+      };
+      workouts.push(workout);
     }
-    await queryInterface.bulkInsert('WorkoutExercises', workoutExercises, {});
+
+    // Insert generated workout data into the database
+    await queryInterface.bulkInsert('Workouts', workouts, {});
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('WorkoutExercises', null, {});
+    // Delete all data from the Workouts table
+    await queryInterface.bulkDelete('Workouts', null, {});
   }
 };

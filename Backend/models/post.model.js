@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Post = sequelize.define('Post', {
     forumId: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER, //to be deleted
       allowNull: false,
       references: {
         model: 'Forums',

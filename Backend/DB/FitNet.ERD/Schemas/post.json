@@ -1,0 +1,28 @@
+{
+    "title": "Post",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "userId": {
+        "type": "integer"
+      },
+      "title": {
+        "type": "string"
+      },
+      "content": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "required": ["userId", "title", "content"]
+  }
+  
