@@ -7,6 +7,7 @@ const ApplyRoutes = require("./Routes");
 const sequelize = require("./DB");
 const app = express();
 const PORT = process.env.PORT || 5000;
+require("./jobs/updateGyms");
 
 app.use(
 	cors({
