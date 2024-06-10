@@ -1,7 +1,7 @@
 // routes/dietPlanRoutes.js
 const express = require('express');
 const router = express.Router();
-const DietPlanController = require('../controllers/dietPlanController');
+const DietPlanController = require('../controllers/dietplan.controller');
 
 // Route for creating a new diet plan
 router.post('/create', DietPlanController.create);

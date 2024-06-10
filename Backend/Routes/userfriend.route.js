@@ -1,7 +1,7 @@
 // routes/userFriendRoutes.js
 const express = require('express');
 const router = express.Router();
-const UserFriendController = require('../controllers/userFriendController');
+const UserFriendController = require('../controllers/UserFriend.controller');
 
 // Route for adding a new friend
 router.post('/add', UserFriendController.addFriend);

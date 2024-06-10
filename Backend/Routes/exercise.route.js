@@ -1,7 +1,7 @@
 // routes/exerciseRoutes.js
 const express = require('express');
 const router = express.Router();
-const ExerciseController = require('../controllers/exerciseController');
+const ExerciseController = require('../controllers/exercise.controller');
 
 // Route for creating a new exercise
 router.post('/create', ExerciseController.create);

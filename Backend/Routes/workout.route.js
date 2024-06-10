@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const workoutController = require('../controllers/workoutController');
+const workoutController = require('../controllers/workout.controller');
 
 // Define routes for workouts
 router.post('/', workoutController.createWorkout);

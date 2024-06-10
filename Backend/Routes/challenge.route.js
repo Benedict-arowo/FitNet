@@ -1,7 +1,7 @@
 // routes/challengeRoutes.js
 const express = require('express');
 const router = express.Router();
-const ChallengeController = require('../controllers/challengeController');
+const ChallengeController = require('../controllers/challenge.controller');
 
 // Route for joining a challenge
 router.post('/join', ChallengeController.joinChallenge);

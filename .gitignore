@@ -4,6 +4,4 @@
 /node_modules
 /.gitignore
 /.github/workflows
-
-
 /Backend/DB/config.json

@@ -1,7 +1,7 @@
 // routes/workoutExerciseRoutes.js
 const express = require('express');
 const router = express.Router();
-const WorkoutExerciseController = require('../controllers/workoutExerciseController');
+const WorkoutExerciseController = require('../controllers/WorkoutExercise.controller');
 
 // Route for adding a new workout exercise
 router.post('/add', WorkoutExerciseController.addExercise);
