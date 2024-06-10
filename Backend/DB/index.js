@@ -6,8 +6,6 @@ const waitlistModel = require("../models/waitlist.model");
 
 const availableConfigs = ["development", "test", "production"];
 
-if (!process.env.CONNECTION_STRING)
-	throw new Error("CONNECTION_STRING is required in .env file");
 if (!availableConfigs.includes(process.env.NODE_ENV.toString())) {
 	throw new Error(
 		"Invalid NODE_ENV provided. Must be one of the following. (development, test, production)"

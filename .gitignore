@@ -1,9 +1,9 @@
 /Backend/node_modules
 /Frontend/node_modules
 /.env
-/Backend/config/config.json
 /node_modules
 /.gitignore
 /.github/workflows
 
 
+/Backend/DB/config.json
