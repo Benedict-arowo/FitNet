@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Gym } = require("../config"); // Assuming you've defined the Gym model
+const { Gym } = require("../DB");
 
 const searchParams = {
 	key: process.env.API_KEY,
@@ -35,6 +35,7 @@ const upsertGyms = async (gyms) => {
 				return `Gym updated: ${gym.name}`;
 			} else {
 				// Create new gym
+
 				await Gym.create(gym);
 				return `Gym created: ${gym.name}`;
 			}
