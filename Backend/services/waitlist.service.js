@@ -1,24 +1,34 @@
 const { StatusCodes } = require("http-status-codes");
 const ErrorWithStatusCode = require("../middlewear/ErrorWithStatusCode");
 const Waitlist = require("../models/waitlist.model");
+const { ValidationError } = require("sequelize");
 
 class WaitlistService {
-	async createWaitlistEntry({ email, full_name }) {
-		if (!email || !full_name) {
+	async createWaitlistEntry({ email }) {
+		if (!email) {
 			throw new ErrorWithStatusCode(
-				"Please provide an email and full name",
+				"Please provide an email",
 				StatusCodes.BAD_REQUEST
 			);
 		}
 
 		try {
-			return await Waitlist.create({ email, full_name });
+			return await Waitlist.create({ email });
 		} catch (error) {
+			process.env.NODE_ENV === "development" && console.log(error);
+
+			if (error instanceof ValidationError)
+				throw new ErrorWithStatusCode(
+					"Invalid email address provided.",
+					StatusCodes.BAD_REQUEST
+				);
+
 			if (error.original.code === "ER_DUP_ENTRY")
 				throw new ErrorWithStatusCode(
 					"Email already exists",
 					StatusCodes.CONFLICT
 				);
+
 			throw new ErrorWithStatusCode(
 				"Something went wrong",
 				StatusCodes.INTERNAL_SERVER_ERROR
