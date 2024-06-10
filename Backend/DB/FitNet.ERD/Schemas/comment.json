@@ -1,0 +1,28 @@
+{
+    "title": "Comment",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "userId": {
+        "type": "integer"
+      },
+      "postId": {
+        "type": "integer"
+      },
+      "content": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "required": ["userId", "postId", "content"]
+  }
+  

@@ -4,9 +4,10 @@ const morgan = require("morgan");
 const cors = require("cors");
 const ErrorHandler = require("./middlewear/ErrorHandler");
 const ApplyRoutes = require("./Routes");
-const sequelize = require("./DB");
+const { sequelize } = require("./DB");
 const app = express();
 const PORT = process.env.PORT || 5000;
+require("./jobs/updateGyms");
 
 app.use(
 	cors({
@@ -27,10 +28,8 @@ app.listen(PORT, async () => {
 	try {
 		await sequelize.authenticate();
 		console.log("Connection has been established successfully.");
-		// if (process.env.NODE_ENV === "development") {
-		// 	await sequelize.sync({ force: true });
-		// 	console.log("All models were synchronized successfully.");
-		// }
+		process.env.NODE_ENV === "development" &&
+			(await sequelize.sync({ force: true }));
 		console.log("listening on port " + PORT);
 	} catch (error) {
 		console.error("Unable to connect to the database:", error);

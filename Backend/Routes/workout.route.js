@@ -1,11 +1,12 @@
-// routes/workoutRoutes.js
 const express = require('express');
 const router = express.Router();
-const WorkoutController = require('../controllers/workoutController');
+const workoutController = require('../controllers/workoutController');
 
-// Route for creating a new workout
-router.post('/create', WorkoutController.create);
-
-// Other routes for workout actions (e.g., update workout, delete workout) can be added here
+// Define routes for workouts
+router.post('/', workoutController.createWorkout);
+router.get('/', workoutController.getAllWorkouts);
+router.get('/:id', workoutController.getWorkoutById);
+router.put('/:id', workoutController.updateWorkout);
+router.delete('/:id', workoutController.deleteWorkout);
 
 module.exports = router;

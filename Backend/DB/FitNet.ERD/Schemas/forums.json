@@ -1,0 +1,28 @@
+{
+    "title": "Forum",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "title": {
+        "type": "string"
+      },
+      "content": {
+        "type": "string"
+      },
+      "userId": {
+        "type": "integer"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "required": ["title", "content", "userId"]
+  }
+  

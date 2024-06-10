@@ -1,0 +1,17 @@
+{
+    "title": "UserChallenges",
+    "type": "object",
+    "properties": {
+      "userId": {
+        "type": "integer"
+      },
+      "challengeId": {
+        "type": "integer"
+      },
+      "status": {
+        "type": "string"
+      }
+    },
+    "required": ["userId", "challengeId", "status"]
+  }
+  

@@ -1,19 +1,19 @@
 const { StatusCodes } = require("http-status-codes");
 const ErrorWithStatusCode = require("../middlewear/ErrorWithStatusCode");
-const Waitlist = require("../models/waitlist.model");
-
+const { Waitlist } = require("../DB/index");
 class WaitlistService {
-	async createWaitlistEntry({ email, full_name }) {
-		if (!email || !full_name) {
+	async createWaitlistEntry({ email }) {
+		if (!email) {
 			throw new ErrorWithStatusCode(
-				"Please provide an email and full name",
+				"Please provide an email.",
 				StatusCodes.BAD_REQUEST
 			);
 		}
 
 		try {
-			return await Waitlist.create({ email, full_name });
+			return await Waitlist.create({ email, full_name: "remove later" });
 		} catch (error) {
+			console.log(error);
 			if (error.original.code === "ER_DUP_ENTRY")
 				throw new ErrorWithStatusCode(
 					"Email already exists",

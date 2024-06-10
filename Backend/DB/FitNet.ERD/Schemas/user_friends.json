@@ -1,0 +1,14 @@
+{
+    "title": "UserFriends",
+    "type": "object",
+    "properties": {
+      "userId": {
+        "type": "integer"
+      },
+      "friendId": {
+        "type": "integer"
+      }
+    },
+    "required": ["userId", "friendId"]
+  }
+  
