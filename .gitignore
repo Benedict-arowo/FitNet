@@ -5,3 +5,8 @@
 /.gitignore
 /.github/workflows
 /Backend/DB/config.json
+/Backend/cert
+/logs
+/Backend/config/config.json
+
+

@@ -9,7 +9,10 @@ const Wrapper = (fn) => {
 		await fn(req, res, next); // 4. Call the original function with the request, response, and next arguments.
 	  } catch (error) {
 		// 5. If an error occurs within the original function, catch it and pass it to the next middleware or error handling function.
-		next(error);
+		// 6. Log the error using the engineerLogger from the logs middleware
+		const engineerLogger = require('./logs').engineerLogger;
+		engineerLogger.error(`Error in middleware: ${error.message}`, { stack: error.stack });
+		next(error); // Pass the error to the next middleware or error handler
 	  }
 	};
   };

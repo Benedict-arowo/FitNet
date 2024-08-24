@@ -8,10 +8,16 @@
   },
   "test": {
     "username": "FitNet_Dev_Team_2024",
-    "password": "AltHub-Group-21",
+    "password": "TE#f2KY@e&D#8rAE@wnh",
     "database": "fitnet_test",
     "host": "fitnet.mysql.database.azure.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "ca": "C:\\Users\\HP\\Desktop\\altschool_project\\FitNet\\FitNet\\Backend\\cert\\BaltimoreCyberTrustRoot.crt.pem",
+        "rejectUnauthorized": false 
+      }
+    }
   },
   "prod": {
     "username": "FitNet_Dev_Team_2024@fitnet-mysql-server",

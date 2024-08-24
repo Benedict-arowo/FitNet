@@ -6,14 +6,12 @@ const { redact } = require('redact-pii');
 const maskLogData = (logData) => {
   // Define a list of sensitive data patterns to mask
   const sensitiveDataPatterns = [
-    /\b\d{4}-\d{2}-\d{2}\b/g, // Dates in YYYY-MM-DD format
-    /\b\d{3}-\d{3}-\d{4}\b/g, // Social Security Numbers
-    /\b\d{16}\b/g, // Credit Card Numbers
-    /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}\b/g, // Email addresses
+    /\b(\d{4})\d{8,12}(\d{4})\b/g, // Credit Card Numbers (only the first 4 and last 4 should not be masked)
+    /(?<=password":\s*")[^"]+/gi, // Passwords (assuming password fields are in the JSON format)
   ];
 
   // Mask sensitive data in the log message
-  return redact(logData, sensitiveDataPatterns, '*');
+  return redact(logData, sensitiveDataPatterns, '****');
 };
 
 // Middleware function to mask sensitive data in logs

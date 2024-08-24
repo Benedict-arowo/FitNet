@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.STRING,
-      defaultValue: 'User',
+      defaultValue: 'user',
     },
     profilePicture: {
       type: DataTypes.STRING,
@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Post, { foreignKey: 'userId' });
     User.hasMany(models.Comment, { foreignKey: 'userId' });
     User.belongsToMany(models.Challenge, { through: 'UserChallenges', foreignKey: 'userId' });
-    User.belongsToMany(User, { as: 'Friends', through: 'UserFriends', foreignKey: 'userId', otherKey: 'friendId' });
+    User.belongsToMany(User, { as: 'Friends', through: 'UserFriend', foreignKey: 'userId', otherKey: 'friendId' });
     User.belongsTo(User, { as: 'referrer', foreignKey: 'referralId', allowNull: true });
   };
 
